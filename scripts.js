@@ -33,6 +33,6 @@ $(document).ready(function() {
   $('#form1').submit(function(event) {
   event.preventDefault();
   let input1 = $('#input1').val();
-  $('#output-section-1').text(makePally(input1));
+  $('#output-section-1').text(1);
   })
 });
