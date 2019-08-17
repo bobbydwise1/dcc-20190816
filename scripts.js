@@ -17,16 +17,20 @@ const easySort = (yourArray) => {
 }
 
 const sorter = (yourArray) => {
-  let left = yourArray.length;
-  while (left > 0) {
-    console.log(left);
-
-    left--;
+  let copied = yourArray.slice();
+  let temp;
+  for (i=1; i<copied.length; i++) {
+    if (copied[i-1].charCodeAt(0) < copied[i].charCodeAt(0)) {
+      temp = copied[i-1];
+      copied[i-1] = copied[i];
+      copied[i] = temp;
+    }
   }
+  return copied;
 }
 
 let test1 = ['G', 'B', 'R', 'R', 'B', 'R', 'G'];
-sorter(test1)
+console.log(sorter(test1))
 
 
 $(document).ready(function() {
