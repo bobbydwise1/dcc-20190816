@@ -46,14 +46,16 @@ const sorter = (yourArray) => {
   return copied;
 }
 
-let test1 = ['G', 'B', 'R', 'R', 'B', 'R', 'G'];
-console.log(sorter(test1))
+// let test1 = ['G', 'B', 'R', 'R', 'B', 'R', 'G'];
+// console.log(sorter(test1))
 
 
 $(document).ready(function() {
   $('#form1').submit(function(event) {
   event.preventDefault();
-  let input1 = $('#input1').val();
+  let preinput1 = $('#input1').val();
+  console.log(preinput1)
+  let input1 = JSON.parse(preinput1);
   $('#output-section-1').text(sorter(input1));
   })
 });
