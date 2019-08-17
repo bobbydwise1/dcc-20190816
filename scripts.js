@@ -16,15 +16,32 @@ const easySort = (yourArray) => {
   return temp.sort().reverse()
 }
 
+//Below is my solution to the problem
 const sorter = (yourArray) => {
+  if (!Array.isArray(yourArray)) {return 'Invalid data'}
   let copied = yourArray.slice();
   let temp;
-  for (i=1; i<copied.length; i++) {
-    if (copied[i-1].charCodeAt(0) < copied[i].charCodeAt(0)) {
-      temp = copied[i-1];
-      copied[i-1] = copied[i];
-      copied[i] = temp;
+  let count;
+  let sorted;
+  //parent loop - runs until array is sorted
+  while (sorted != true) {
+    //fixer loop - rearranges array
+    for (i=1; i<copied.length; i++) {
+      if (copied[i-1].charCodeAt(0) < copied[i].charCodeAt(0)) {
+        temp = copied[i-1];
+        copied[i-1] = copied[i];
+        copied[i] = temp;
+      }
     }
+    count = 0;
+    //checker loop - sees if the array is sorted
+    for (let j=1; j<copied.length; j++) {
+      if (copied[j-1].charCodeAt(0) < copied[j].charCodeAt(0)) {
+        count++;
+      }
+    }
+    if (count === 0) {sorted = true}
+    console.log('turns')
   }
   return copied;
 }
@@ -37,6 +54,6 @@ $(document).ready(function() {
   $('#form1').submit(function(event) {
   event.preventDefault();
   let input1 = $('#input1').val();
-  $('#output-section-1').text(1);
+  $('#output-section-1').text(sorter(input1));
   })
 });
