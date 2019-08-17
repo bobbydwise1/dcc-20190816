@@ -10,6 +10,23 @@ Do this in linear time and in-place.
 For example, given the array ['G', 'B', 'R', 'R', 'B', 'R', 'G'], it should become ['R', 'R', 'R', 'G', 'G', 'B', 'B'].
 */
 
+const easySort = (yourArray) => {
+  //This is how you would do it in native Javascript
+  let temp = yourArray.slice() //no mutation
+  return temp.sort().reverse()
+}
+
+const sorter = (yourArray) => {
+  let left = yourArray.length;
+  while (left > 0) {
+    console.log(left);
+
+    left--;
+  }
+}
+
+let test1 = ['G', 'B', 'R', 'R', 'B', 'R', 'G'];
+sorter(test1)
 
 
 $(document).ready(function() {
