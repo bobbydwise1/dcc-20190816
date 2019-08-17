@@ -41,7 +41,7 @@ const sorter = (yourArray) => {
       }
     }
     if (count === 0) {sorted = true}
-    console.log('turns')
+    console.log('This time is: ', copied)
   }
   return copied;
 }
@@ -54,8 +54,9 @@ $(document).ready(function() {
   $('#form1').submit(function(event) {
   event.preventDefault();
   let preinput1 = $('#input1').val();
+  preinput1 = preinput1.replace(/\'/gi,'"'); //for some reason, JSON.parse does not like single quotes, so replace them.
   console.log(preinput1)
   let input1 = JSON.parse(preinput1);
-  $('#output-section-1').text(sorter(input1));
+  $('#output-section-1').text(JSON.stringify(sorter(input1)));
   })
 });
